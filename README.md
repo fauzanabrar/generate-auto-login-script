@@ -12,7 +12,12 @@ npm install
 ```
 
 ## How to 
-change url and filename that you want to login in `index.js` and run the file.
+change url and filename that you want to login in `index.js`:
+```
+const url       = '<URL_WITH_HTTP/HTTPS>'
+const filename  = '<FILENAME_WITHOUT_EXTENSION>'
+```
+then run the file;
 ```
 npm start
 ``` 

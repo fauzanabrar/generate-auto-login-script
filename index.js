@@ -1,7 +1,7 @@
 const fs        = require('fs');
-const produce   = require('./services/produceSet');
+const produce   = require('./src/services/produceSet');
 const serialize = require('serialize-javascript');
-const getAuth   = require('./services/getAuth');
+const getAuth   = require('./src/services/getAuth');
 
 const url       = '<URL_WITH_HTTP/HTTPS>'
 const filename  = '<FILENAME_WITHOUT_EXTENSION>'
