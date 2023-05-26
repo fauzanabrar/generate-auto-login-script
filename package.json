@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "minify": "^10.2.0",
     "playwright": "^1.33.0",
     "serialize-javascript": "^6.0.1"
   }
