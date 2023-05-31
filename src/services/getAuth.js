@@ -1,4 +1,5 @@
 const playwright = require('playwright');
+const fs         = require('fs');
 
 async function getAuth(url, authFilename) {
   const browser = await playwright.firefox.launch({headless:false});
@@ -12,17 +13,17 @@ async function getAuth(url, authFilename) {
   
   // Restore the storage state
   await context.addCookies(storageState.cookies);
-
   const myJSON = JSON.stringify(storageState, null, 2);
+  console.log(myJSON);
 
-  fs.writeFile(`./auth/${authFilename}.json`, myJSON, async (err) => {
+  fs.writeFile(`./auth/${authFilename}.json`, myJSON, (err) => {
     if (err) {
-      console.error(err);
+      console.error(err, 'yahoo');
       return;
     }
     console.log(`JSON data has been saved to ${authFilename}.json`);
-    await browser.close();
   });
+  await browser.close();
 }
 
 module.exports = getAuth;
