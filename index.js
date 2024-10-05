@@ -4,9 +4,10 @@ const { exec } = require("child_process");
 const produce = require("./src/services/produceSet");
 const serialize = require("serialize-javascript");
 const getAuth = require("./src/services/getAuth");
+const { info } = require("./info");
 
-const url = "<URL_WITH_HTTP/HTTPS>";
-const filename = "<FILENAME_WITHOUT_EXTENSION>";
+const url = info.url;
+const filename = info.fileName;
 
 async function runAuto(url, filename) {
 	// create directory if it doesn't exist
@@ -18,7 +19,7 @@ async function runAuto(url, filename) {
 		fs.mkdirSync("./login");
 	}
 
-	let authFile = "";
+	let authFile = info.authFileName;
 
 	try {
 		authFile = require(`./auth/${filename}.json`);
