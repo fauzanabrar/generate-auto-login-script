@@ -19,10 +19,11 @@ npm install -g minify
 
 
 ## How to 
-change url and filename that you want to login in `index.js`:
+change url and filename that you want to login in `info.js`:
 ```
-const url       = '<URL_WITH_HTTP/HTTPS>'
-const filename  = '<FILENAME_WITHOUT_EXTENSION>'
+url           = '<URL_WITH_HTTP/HTTPS>'
+filename      = '<FILENAME_WITHOUT_EXTENSION>'
+authFileName  = '<AUTHFILENAME>'
 ```
 then run the file;
 ```

@@ -1,5 +1,5 @@
 export const info = {
-	url: "John Doe",
-	fileName: "JohnDoe",
-	authFileName: "JohnDoe",
+	url: "<URL_WITH_HTTP/HTTPS>",
+	fileName: "<FILENAME_WITHOUT_EXTENSION>",
+	authFileName: "<AUTHFILENAME>",
 };
