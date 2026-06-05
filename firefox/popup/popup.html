@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chrome Extension Auto-Login</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header with extension title -->
+    <header class="header">
+      <h1>Auto-Login Script Generator</h1>
+    </header>
+
+    <!-- Section to display current tab domain -->
+    <section class="tab-info">
+      <div class="info-label">Current Domain:</div>
+      <div id="current-domain" class="info-value">Loading...</div>
+    </section>
+
+    <!-- Capture Auth Data button -->
+    <section class="capture-section">
+      <button id="capture-button" class="btn btn-primary">Capture Auth Data</button>
+    </section>
+
+    <!-- Data summary section (cookie count, localStorage count) -->
+    <section id="data-summary" class="data-summary hidden">
+      <h2>Captured Data Summary</h2>
+      <div class="summary-item">
+        <span class="summary-label">Cookies:</span>
+        <span id="cookie-count" class="summary-value">0</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">localStorage Items:</span>
+        <span id="localstorage-count" class="summary-value">0</span>
+      </div>
+    </section>
+
+    <!-- Textarea for generated script display -->
+    <section id="script-section" class="script-section hidden">
+      <h2>Generated Script</h2>
+      <div class="script-info">
+        <span class="script-size-label">Size:</span>
+        <span id="script-size" class="script-size-value">0 bytes</span>
+      </div>
+      <textarea id="script-output" class="script-textarea" readonly></textarea>
+      
+      <!-- Copy to Clipboard and Download buttons -->
+      <div class="script-actions">
+        <button id="copy-button" class="btn btn-secondary">Copy to Clipboard</button>
+        <button id="download-js-button" class="btn btn-secondary">⬇ .js</button>
+        <button id="download-json-button" class="btn btn-secondary">⬇ .json</button>
+      </div>
+    </section>
+
+    <!-- Saved profiles section with list and controls -->
+    <section class="profiles-section">
+      <div class="profiles-header">
+        <h2>Saved Profiles</h2>
+        <div class="profiles-header-actions">
+          <button id="import-profile-button" class="btn btn-secondary btn-sm" title="Import profile from JSON file">⬆ Import</button>
+          <input type="file" id="import-file-input" accept=".json,.js" class="hidden" aria-label="Import profile JSON or JS file" />
+        </div>
+      </div>
+      <div id="profiles-list" class="profiles-list">
+        <!-- Profile items will be populated by popup.js -->
+        <div class="empty-state">No saved profiles yet</div>
+      </div>
+      <div id="save-profile-section" class="save-profile-section hidden">
+        <input 
+          type="text" 
+          id="profile-name-input" 
+          class="profile-name-input" 
+          placeholder="Enter profile name..."
+          maxlength="50"
+        />
+        <button id="save-profile-button" class="btn btn-secondary">Save Profile</button>
+      </div>
+    </section>
+
+    <!-- Error and success message containers -->
+    <div id="error-message" class="message message-error hidden" role="alert">
+      <span class="message-icon">⚠️</span>
+      <span id="error-text" class="message-text"></span>
+      <button class="message-close" aria-label="Close error message">&times;</button>
+    </div>
+
+    <div id="success-message" class="message message-success hidden" role="status">
+      <span class="message-icon">✓</span>
+      <span id="success-text" class="message-text"></span>
+      <button class="message-close" aria-label="Close success message">&times;</button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
