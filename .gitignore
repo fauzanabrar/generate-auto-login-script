@@ -1,3 +1,7 @@
 node_modules
 auth
 login
+
+# IDE / tooling
+.kiro/
+.vscode/
